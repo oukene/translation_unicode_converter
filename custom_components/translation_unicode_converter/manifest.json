@@ -1,0 +1,9 @@
+{
+  "domain": "translation_unicode_converter",
+  "name": "translation unicode converter",
+  "documentation": "https://github.com/oukene/state_switch",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@oukene"],
+  "version": "1.0.0"
+}
