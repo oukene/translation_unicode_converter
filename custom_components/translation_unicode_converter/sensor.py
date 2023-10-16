@@ -37,8 +37,3 @@ async def async_setup_platform(
                         json.dump(data, f, sort_keys=component.get("sort", False), indent=4)
 
 
-    
-    
-    _LOGGER.debug("real path : " + str(os.listdir("custom_components")))
-
-
