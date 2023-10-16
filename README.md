@@ -8,6 +8,6 @@ Converts the translation file of a custom component to Unicode.
 sensor:
   - platform: translation_unicode_converter
     components:
-      - name: weight_recorder
+      - name: custom_component_name # Enter the folder name of the custom component.
         sort: false  # If true, sorts the contents of the json file
 ```
