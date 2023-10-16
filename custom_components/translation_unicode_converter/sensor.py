@@ -23,16 +23,18 @@ async def async_setup_platform(
     _LOGGER.debug("config" + str(config.get("components")))
 
     for component in config.get("components"):
-        filePath = "custom_components/" + component.get("name") + "/translations/ko.json"
+        filePath = "custom_components/" + component.get("name") + "/translations/"
         _LOGGER.debug("filePath : " + str(filePath))
-        data = None
-        if os.path.exists(filePath):
-            with open(filePath, "r") as f:
-                _LOGGER.debug("load json")
-                data = json.load(f)
-            if data != None:
-                with open(filePath, "w") as f:
-                    json.dump(data, f, sort_keys=component.get("sort", False), indent=4)
+        for file in os.listdir(filePath):
+            data = None
+            realPath = filePath + file
+            if os.path.exists(realPath):
+                with open(realPath, "r") as f:
+                    _LOGGER.debug("load json")
+                    data = json.load(f)
+                if data != None:
+                    with open(realPath, "w") as f:
+                        json.dump(data, f, sort_keys=component.get("sort", False), indent=4)
 
 
     
