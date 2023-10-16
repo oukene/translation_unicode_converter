@@ -18,10 +18,6 @@ async def async_setup_platform(
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Set up the template switches."""
-
-    _LOGGER.debug("call unicode converter setup2")
-    _LOGGER.debug("config" + str(config.get("components")))
-
     for component in config.get("components"):
         filePath = "custom_components/" + component.get("name") + "/translations/"
         _LOGGER.debug("filePath : " + str(filePath))
@@ -30,7 +26,6 @@ async def async_setup_platform(
             realPath = filePath + file
             if os.path.exists(realPath):
                 with open(realPath, "r") as f:
-                    _LOGGER.debug("load json")
                     data = json.load(f)
                 if data != None:
                     with open(realPath, "w") as f:
